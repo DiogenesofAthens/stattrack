@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import type { TrendData } from "@/types/nba";
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "https://stattrack-api-production.up.railway.app/api";
 
 interface ApiGame {
   game_date: string;
