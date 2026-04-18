@@ -26,7 +26,7 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
 
   useEffect(() => {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10_000);
+    const timeout = setTimeout(() => controller.abort(), 30_000);
 
     fetch(`${API_BASE}/insights`, { signal: controller.signal })
       .then((res) => {
@@ -48,10 +48,16 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
         setLoading(false);
       })
       .catch((err: unknown) => {
-        setError(err instanceof Error ? err.message : "Failed to load insights");
+        if (err instanceof Error && err.name === "AbortError") {
+          setError("Request timed out");
+        } else {
+          setError(err instanceof Error ? err.message : "Failed to load insights");
+        }
         setLoading(false);
       })
       .finally(() => clearTimeout(timeout));
+
+    return () => controller.abort();
   }, []);
 
   return { insights, loading, error };

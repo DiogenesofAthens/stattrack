@@ -35,7 +35,7 @@ export default function Page() {
       </header>
 
       <main className="mx-auto max-w-7xl px-6 py-8 space-y-8">
-        {(playersError ?? insightsError) && (
+        {playersError && (
           <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-400">
             Backend unavailable — some data could not be loaded.
           </div>
