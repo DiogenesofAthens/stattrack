@@ -84,6 +84,10 @@ export default function Page() {
                 />
               ))}
             </div>
+          ) : insightsError || insights.length === 0 ? (
+            <p className="text-sm text-slate-500">
+              {insightsError ? `Could not load anomaly alerts: ${insightsError}` : "No anomaly alerts at this time."}
+            </p>
           ) : (
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {insights.map((insight) => (

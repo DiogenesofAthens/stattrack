@@ -25,7 +25,10 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`${API_BASE}/insights`)
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
+
+    fetch(`${API_BASE}/insights`, { signal: controller.signal })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json() as Promise<ApiInsightsResponse>;
@@ -47,7 +50,8 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
       .catch((err: unknown) => {
         setError(err instanceof Error ? err.message : "Failed to load insights");
         setLoading(false);
-      });
+      })
+      .finally(() => clearTimeout(timeout));
   }, []);
 
   return { insights, loading, error };
