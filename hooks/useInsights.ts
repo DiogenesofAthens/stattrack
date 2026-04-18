@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import type { Insight } from "@/types/nba";
 
-const API_BASE = "https://stattrack-api-production.up.railway.app/api";
+const API_BASE = "https://api.kirkwessman.com/api";
 
 interface ApiInsight {
   player_id: number;
