@@ -25,6 +25,7 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let cancelled = false;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 30_000);
 
@@ -34,6 +35,7 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
         return res.json() as Promise<ApiInsightsResponse>;
       })
       .then(({ insights: apiInsights }) => {
+        if (cancelled) return;
         setInsights(
           apiInsights.map((i) => ({
             id: String(i.player_id),
@@ -45,9 +47,11 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
             statLabel: "PPG (last 5 games)",
           }))
         );
+        setError(null);
         setLoading(false);
       })
       .catch((err: unknown) => {
+        if (cancelled) return;
         if (err instanceof Error && err.name === "AbortError") {
           setError("Request timed out");
         } else {
@@ -57,7 +61,10 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
       })
       .finally(() => clearTimeout(timeout));
 
-    return () => controller.abort();
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   return { insights, loading, error };
