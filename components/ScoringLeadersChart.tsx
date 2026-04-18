@@ -6,6 +6,7 @@ import {
   LinearScale,
   BarElement,
   Tooltip,
+  type TooltipItem,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import type { ScoringLeader } from "@/types/nba";
@@ -46,7 +47,7 @@ export default function ScoringLeadersChart({ leaders }: ScoringLeadersChartProp
         borderColor: "#334155",
         borderWidth: 1,
         callbacks: {
-          label: (ctx: { parsed: { x: number } }) => ` ${ctx.parsed.x.toFixed(1)} PPG`,
+          label: (ctx: TooltipItem<"bar">) => ` ${(ctx.parsed.x as number).toFixed(1)} PPG`,
         },
       },
     },
