@@ -27,3 +27,8 @@ export interface MetricSummary {
   value: string | number;
   delta: number; // positive = up, negative = down
 }
+
+export interface ScoringLeader {
+  player_name: string;
+  ppg: number;
+}

@@ -1,12 +1,12 @@
 "use client";
 
 import MetricCard from "@/components/MetricCard";
-import TrendChart from "@/components/TrendChart";
+import ScoringLeadersChart from "@/components/ScoringLeadersChart";
 import PlayerList from "@/components/PlayerList";
 import InsightAlert from "@/components/InsightAlert";
 import { usePlayers } from "@/hooks/usePlayers";
 import { useInsights } from "@/hooks/useInsights";
-import { useTrends } from "@/hooks/useTrends";
+import { useScoringLeaders } from "@/hooks/useScoringLeaders";
 import type { MetricSummary } from "@/types/nba";
 
 const METRICS: MetricSummary[] = [
@@ -19,9 +19,7 @@ const METRICS: MetricSummary[] = [
 export default function Page() {
   const { players, loading: playersLoading, error: playersError } = usePlayers();
   const { insights, loading: insightsLoading, error: insightsError } = useInsights();
-
-  const topPlayer = players[0] ?? null;
-  const { trend: topPlayerTrend, loading: trendLoading } = useTrends(topPlayer?.id ?? null);
+  const { leaders, loading: leadersLoading } = useScoringLeaders();
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100">
@@ -57,11 +55,11 @@ export default function Page() {
         {/* Trend chart + player list */}
         <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            {playersLoading || trendLoading ? (
+            {leadersLoading ? (
               <div className="rounded-xl bg-slate-800 border border-slate-700 h-64 animate-pulse" />
-            ) : topPlayer ? (
-              <TrendChart trend={topPlayerTrend} playerName={topPlayer.name} />
-            ) : null}
+            ) : (
+              <ScoringLeadersChart leaders={leaders} />
+            )}
           </div>
           <div>
             {playersLoading ? (
