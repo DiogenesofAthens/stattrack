@@ -21,11 +21,11 @@ export default function ScoringLeadersChart({ leaders }: ScoringLeadersChartProp
   const ordered = [...leaders].reverse();
 
   const data = {
-    labels: ordered.map((l) => l.player_name),
+    labels: ordered.map((l) => l.name),
     datasets: [
       {
         label: "PPG",
-        data: ordered.map((l) => l.ppg),
+        data: ordered.map((l) => l.pts),
         backgroundColor: "rgba(56,189,248,0.75)",
         borderColor: "#38bdf8",
         borderWidth: 1,

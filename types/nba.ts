@@ -29,6 +29,8 @@ export interface MetricSummary {
 }
 
 export interface ScoringLeader {
-  player_name: string;
-  ppg: number;
+  player_id: number;
+  name: string;
+  team: string;
+  pts: number;
 }

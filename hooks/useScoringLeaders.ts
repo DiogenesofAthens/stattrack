@@ -18,10 +18,10 @@ export function useScoringLeaders(): {
     fetch(`${API_BASE}/scoring-leaders`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json() as Promise<ScoringLeader[]>;
+        return res.json() as Promise<{ players: ScoringLeader[] }>;
       })
       .then((data) => {
-        setLeaders(data.slice(0, 10));
+        setLeaders(data.players.slice(0, 10));
         setLoading(false);
       })
       .catch((err: unknown) => {
