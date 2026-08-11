@@ -35,6 +35,9 @@ export default function Page() {
       </header>
 
       <main className="mx-auto max-w-7xl px-6 py-8 space-y-8">
+        <div className="rounded-lg border border-sky-500/20 bg-sky-500/10 px-4 py-3 text-sm text-sky-300">
+          Live data may be intermittent while the free-tier backend warms up or the unofficial NBA stats API rate-limits cloud requests; offseason feeds are quiet, too.
+        </div>
         {playersError && (
           <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-400">
             Backend unavailable — some data could not be loaded.
@@ -43,7 +46,7 @@ export default function Page() {
         {/* Metric summary row */}
         <section>
           <h2 className="text-xs font-medium uppercase tracking-widest text-slate-500 mb-4">
-            Season at a Glance
+            Illustrative League Benchmarks
           </h2>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {METRICS.map((m) => (
@@ -86,7 +89,7 @@ export default function Page() {
             </div>
           ) : insightsError || insights.length === 0 ? (
             <p className="text-sm text-slate-500">
-              {insightsError ? `Could not load anomaly alerts: ${insightsError}` : "No anomaly alerts at this time."}
+              {insightsError ? `Could not load anomaly alerts: ${insightsError}` : "No alerts — live game data resumes with the season; the backend may also be warming up."}
             </p>
           ) : (
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
