@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import type { Insight } from "@/types/nba";
 
-const API_BASE = "https://api.kirkwessman.com/api";
+// Static 2025-26 snapshot served from public/data; the live API is offline.
+const DATA_BASE = "/data";
 
 interface ApiInsight {
   player_id: number;
@@ -27,7 +28,7 @@ export function useInsights(): { insights: Insight[]; loading: boolean; error: s
   useEffect(() => {
     let cancelled = false;
 
-    fetch(`${API_BASE}/insights`)
+    fetch(`${DATA_BASE}/insights.json`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json() as Promise<ApiInsightsResponse>;

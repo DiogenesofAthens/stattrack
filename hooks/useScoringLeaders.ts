@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import type { ScoringLeader } from "@/types/nba";
 
-const API_BASE = "https://api.kirkwessman.com/api";
+// Static 2025-26 snapshot served from public/data; the live API is offline.
+const DATA_BASE = "/data";
 
 export function useScoringLeaders(): {
   leaders: ScoringLeader[];
@@ -15,7 +16,7 @@ export function useScoringLeaders(): {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`${API_BASE}/scoring-leaders`)
+    fetch(`${DATA_BASE}/scoring-leaders.json`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json() as Promise<{ players: ScoringLeader[] }>;

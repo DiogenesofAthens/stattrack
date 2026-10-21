@@ -1,0 +1,64 @@
+{
+  "players": [
+    {
+      "player_id": 1629029,
+      "name": "Luka Dončić",
+      "team": "LAL",
+      "pts": 33.5
+    },
+    {
+      "player_id": 1628983,
+      "name": "Shai Gilgeous-Alexander",
+      "team": "OKC",
+      "pts": 31.1
+    },
+    {
+      "player_id": 1630162,
+      "name": "Anthony Edwards",
+      "team": "MIN",
+      "pts": 28.8
+    },
+    {
+      "player_id": 1627759,
+      "name": "Jaylen Brown",
+      "team": "BOS",
+      "pts": 28.7
+    },
+    {
+      "player_id": 1630178,
+      "name": "Tyrese Maxey",
+      "team": "PHI",
+      "pts": 28.3
+    },
+    {
+      "player_id": 202695,
+      "name": "Kawhi Leonard",
+      "team": "LAC",
+      "pts": 27.9
+    },
+    {
+      "player_id": 1628378,
+      "name": "Donovan Mitchell",
+      "team": "CLE",
+      "pts": 27.9
+    },
+    {
+      "player_id": 203999,
+      "name": "Nikola Jokić",
+      "team": "DEN",
+      "pts": 27.7
+    },
+    {
+      "player_id": 1626164,
+      "name": "Devin Booker",
+      "team": "PHX",
+      "pts": 26.1
+    },
+    {
+      "player_id": 1628973,
+      "name": "Jalen Brunson",
+      "team": "NYK",
+      "pts": 26.0
+    }
+  ]
+}

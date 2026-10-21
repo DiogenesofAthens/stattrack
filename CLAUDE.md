@@ -4,7 +4,7 @@
 
 ## Overview
 
-StatTrack is a client-rendered NBA analytics dashboard built with the Next.js App Router, TypeScript, Tailwind CSS, and Chart.js. The page fetches season data directly from the production FastAPI backend at `https://api.kirkwessman.com/api`.
+StatTrack is a client-rendered NBA analytics dashboard built with the Next.js App Router, TypeScript, Tailwind CSS, and Chart.js. The page currently reads a static 2025-26 snapshot from `public/data/*.json`, which keeps the response shapes of the FastAPI backend. The production backend at `https://api.kirkwessman.com/api` is offline (Railway returns "Application not found" as of 2026-10-21).
 
 ## Stack and commands
 
@@ -21,9 +21,9 @@ Follow the Next.js-specific instructions imported from `AGENTS.md`. In particula
 
 ## Current data flow
 
-- `hooks/usePlayers.ts` calls `GET /api/players` and maps API player records to the frontend `Player` type.
-- `hooks/useInsights.ts` calls `GET /api/insights` and maps hot, cold, and watch records to alert cards.
-- `hooks/useScoringLeaders.ts` calls `GET /api/scoring-leaders` and supplies the horizontal scoring-leaders chart.
+- `hooks/usePlayers.ts` fetches `/data/players.json` (the `GET /api/players` shape) and maps API player records to the frontend `Player` type.
+- `hooks/useInsights.ts` fetches `/data/insights.json` (the `GET /api/insights` shape) and maps hot, cold, and watch records to alert cards.
+- `hooks/useScoringLeaders.ts` fetches `/data/scoring-leaders.json` (the `GET /api/scoring-leaders` shape) and supplies the horizontal scoring-leaders chart.
 - `app/page.tsx` composes the dashboard and invokes all three active hooks.
 
 The scoring-leaders response has this shape:
@@ -44,7 +44,7 @@ The scoring-leaders response has this shape:
 
 ## Integration and verification
 
-- The API base URL is currently repeated in the hooks. Keep all active hooks consistent when changing it.
+- The data base path (`DATA_BASE`) is currently repeated in the active hooks. Keep them consistent when changing it, including when pointing them back at a live API.
 - Preserve the backend's snake_case response fields at the API boundary and map them explicitly to frontend types.
 - Trace changes through fetch, response shape, state, and rendering.
 - Before considering a code change complete, run `npm run lint` and `npm run build`.

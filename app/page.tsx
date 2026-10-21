@@ -36,7 +36,7 @@ export default function Page() {
 
       <main className="mx-auto max-w-7xl px-6 py-8 space-y-8">
         <div className="rounded-lg border border-sky-500/20 bg-sky-500/10 px-4 py-3 text-sm text-sky-300">
-          Live data may be intermittent while the free-tier backend warms up or the unofficial NBA stats API rate-limits cloud requests; offseason feeds are quiet, too.
+          Static snapshot of the final 2025–26 regular season, from NBA.com data captured Oct 21, 2026. Live updates are paused.
         </div>
         {playersError && (
           <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-400">

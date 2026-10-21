@@ -1,0 +1,94 @@
+{
+  "insights": [
+    {
+      "player_id": 1626164,
+      "name": "Devin Booker",
+      "team": "PHX",
+      "alert": "hot",
+      "season_avg_pts": 26.1,
+      "last5_avg_pts": 30.8,
+      "delta_pct": 18.0
+    },
+    {
+      "player_id": 1630162,
+      "name": "Anthony Edwards",
+      "team": "MIN",
+      "alert": "cold",
+      "season_avg_pts": 28.8,
+      "last5_avg_pts": 21.6,
+      "delta_pct": -25.0
+    },
+    {
+      "player_id": 1630178,
+      "name": "Tyrese Maxey",
+      "team": "PHI",
+      "alert": "cold",
+      "season_avg_pts": 28.3,
+      "last5_avg_pts": 23.0,
+      "delta_pct": -18.7
+    },
+    {
+      "player_id": 1629029,
+      "name": "Luka Dončić",
+      "team": "LAL",
+      "alert": "watch",
+      "season_avg_pts": 33.5,
+      "last5_avg_pts": 34.0,
+      "delta_pct": 1.5
+    },
+    {
+      "player_id": 1628983,
+      "name": "Shai Gilgeous-Alexander",
+      "team": "OKC",
+      "alert": "watch",
+      "season_avg_pts": 31.1,
+      "last5_avg_pts": 28.0,
+      "delta_pct": -10.0
+    },
+    {
+      "player_id": 1627759,
+      "name": "Jaylen Brown",
+      "team": "BOS",
+      "alert": "watch",
+      "season_avg_pts": 28.7,
+      "last5_avg_pts": 30.6,
+      "delta_pct": 6.6
+    },
+    {
+      "player_id": 202695,
+      "name": "Kawhi Leonard",
+      "team": "LAC",
+      "alert": "watch",
+      "season_avg_pts": 27.9,
+      "last5_avg_pts": 25.6,
+      "delta_pct": -8.2
+    },
+    {
+      "player_id": 1628378,
+      "name": "Donovan Mitchell",
+      "team": "CLE",
+      "alert": "watch",
+      "season_avg_pts": 27.9,
+      "last5_avg_pts": 27.6,
+      "delta_pct": -1.1
+    },
+    {
+      "player_id": 203999,
+      "name": "Nikola Jokić",
+      "team": "DEN",
+      "alert": "watch",
+      "season_avg_pts": 27.7,
+      "last5_avg_pts": 25.4,
+      "delta_pct": -8.3
+    },
+    {
+      "player_id": 1628973,
+      "name": "Jalen Brunson",
+      "team": "NYK",
+      "alert": "watch",
+      "season_avg_pts": 26.0,
+      "last5_avg_pts": 22.6,
+      "delta_pct": -13.1
+    }
+  ]
+}
