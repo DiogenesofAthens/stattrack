@@ -1,4 +1,5 @@
 @AGENTS.md
+@NOTES.md
 
 # StatTrack frontend
 
@@ -55,3 +56,4 @@ The scoring-leaders response has this shape:
 - Branch: `main`
 - Remote: `https://github.com/DiogenesofAthens/stattrack`
 - Production site: `https://stattrack.kirkwessman.com`
+- `NOTES.md` is gitignored and exists only locally. It holds the START HERE board, the session log and the project notes, and is imported at the top of this file. Never commit or push it, because this repo is public.
